@@ -4,10 +4,12 @@ const Card = (props) => {
   let course = props.course;
   console.log(course.image.alt)
   return (
-    <div>
-      <img 
-      src={course.image.url} 
-      alt={course.image.alt} />
+    <div className="w-[300px] bg-black text-white rounded-md overflow-hidden">
+      <div>
+        <img
+          src={course.image.url}
+          alt={course.image.alt} />
+      </div>
       <div>
         <button>
           <FcLike />
