@@ -15,7 +15,7 @@ const Cards = (props) => {
   }
 
   return (
-    <div>
+    <div className='flex flex-wrap justify-center gap-4 m-5'>
       {
         getCourses().map((course) => (
           <Card key={course.id} course={course} />
