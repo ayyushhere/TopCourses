@@ -7,9 +7,7 @@ const Card = (props) => {
 
   function clickHandler(){
     //logic
-    if(likedCourses.includes(course.id)){
-      setLikedCourses( (prev) => prev.filter((cid !== course.id)) );
-    }
+    
   }
 
   return (
