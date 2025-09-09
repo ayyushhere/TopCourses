@@ -1,4 +1,4 @@
-import { FcLike } from "react-icons/fc";
+import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import { toast } from "react-toastify";
 
 const Card = (props) => {
@@ -11,6 +11,7 @@ const Card = (props) => {
     if(likedCourses.includes(course.id)){
       //pehle se lke hua para h
       setLikedCourses( (prev) => prev.filter((cid) => (cid !== course.id)) );
+      toast.warning("Like removed");
     }
     else{
       // pehle se like nahi h
@@ -34,7 +35,9 @@ const Card = (props) => {
           alt={course.image.alt} />
         <div className="w-[30px] h-[30px] bg-white rounded-full absolute right-2 bottom-2 grid place-items-center">
           <button onClick={clickHandler}>
-            <FcLike fontSize={"1.50rem"}/>
+            {
+              likedCourses.includes(course.id) ? (<FcLike fontSize={"1.50rem"}/>) : (<FcLikePlaceholder fontSize={"1.50rem"}/>)
+            }
           </button>
         </div>
       </div>
