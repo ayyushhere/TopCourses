@@ -1,4 +1,5 @@
 import { FcLike } from "react-icons/fc";
+import { toast } from "react-toastify";
 
 const Card = (props) => {
   let course = props.course;
@@ -8,7 +9,20 @@ const Card = (props) => {
   function clickHandler(){
     //logic
     if(likedCourses.includes(course.id)){
-      setLikedCourses( (prev) => prev.filter((cid !== course.id)) );
+      //pehle se lke hua para h
+      setLikedCourses( (prev) => prev.filter((cid) => (cid !== course.id)) );
+    }
+    else{
+      // pehle se like nahi h
+      // insert karna h ye course like course me 
+      if(likedCourses.length === 0){
+        setLikedCourses([course.id]);
+      }
+      else{
+        //non-empty pehle se
+        setLikedCourses(((prev) => [...prev, course.id]));
+      }
+      toast.success("Liked Succesfully");
     }
   }
 
