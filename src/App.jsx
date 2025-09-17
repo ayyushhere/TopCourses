@@ -1,5 +1,5 @@
 import Filter from './components/Filter'
-import Cards from './components/Cards'
+import Cards from './Components/Cards'
 import Navbar from './components/Navbar'
 import Spinner from './components/Spinner'
 import { useState, useEffect } from 'react'
@@ -33,11 +33,14 @@ const App = () => {
         <Navbar />
       </div>
       <div>
-        <Filter filterData={filterData} />
+        <Filter filterData={filterData}
+                category={category}
+                setCategory={setCategory}
+        />
       </div>
       <div className='w-11/12 max-w-[1200px] mx-auto flex flex-wrap justify-center items-center min-h-[50vh]'>
         {
-          loading ? (<Spinner />) : (<Cards courses={courses} />)
+          loading ? (<Spinner />) : (<Cards courses={courses} category={category}/>)
         }
       </div>
     </div>
